@@ -9,8 +9,8 @@ class AgencyController < ApplicationController
   
     # POST /EntriesController
     def create
-      @Agency = Agency.new(agency_params)
-      @Agency.save
+      @agency = Agency.new(agency_params)
+      @agency.save
     end
   
     # GET /EntriesController/:id
@@ -20,13 +20,13 @@ class AgencyController < ApplicationController
   
     # PUT /EntriesController/:id
     def update
-      @Agency.update(agency_params)
+      @agency.update(agency_params)
       head :no_content
     end
   
     # DELETE /EntriesController/:id
     def destroy
-      @Agency.destroy
+      @agency.destroy
       head :no_content
     end
   
@@ -34,10 +34,10 @@ class AgencyController < ApplicationController
   
     def agency_params
       # whitelist params
-      params.permit(:name, :description, :typeofagency)
+      params.permit(:name, :description, :deadline, :rating, :cost, :typeofaward, :url)
     end
   
-    def set_Agency
-      @Agency = Agency.find(params[:id])
-    end
+    def set_agency
+      @agency = Agency.find(params[:id])
+    end    
 end
