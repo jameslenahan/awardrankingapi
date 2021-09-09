@@ -34,7 +34,7 @@ class EntriesController < ApplicationController
   
     def entry_params
       # whitelist params
-      params.permit(:name, :description, :deadline, :rating, :cost, :typeofaward, :url)
+      params.require(:entry).permit(:name, :description, :deadline, :rating, :cost, :typeofaward, :url)
     end
   
     def set_entry
